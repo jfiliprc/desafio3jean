@@ -1,0 +1,21 @@
+# Use a base image
+FROM alpine:3.13
+
+# Install SQLite
+RUN apk add --no-cache sqlite
+
+# Set the working directory
+WORKDIR /data
+
+# Copy the initialization script
+COPY init_db.sql .
+
+# Copy the entrypoint script
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Set the entrypoint
+ENTRYPOINT ["entrypoint.sh"]
+
+# Expose the volume
+VOLUME /data
