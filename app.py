@@ -4,7 +4,7 @@ import sqlite3
 app = Flask(__name__)
 
 # Configuração do banco de dados
-DATABASE = 'database.db'
+DATABASE = 'database/database.db'
 
 # Função para criar a tabela de dados
 def create_table():
